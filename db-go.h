@@ -1,0 +1,12 @@
+extern int db_env_open(DB_ENV *env, char *db_home, u_int32_t flags, int mode);
+extern int db_env_close(DB_ENV *env, u_int32_t flags);
+extern int db_env_txn_begin(DB_ENV *env, DB_TXN *parent, DB_TXN **tid, u_int32_t flags);
+extern int db_open(DB *db, DB_TXN *txnid, char *file, char *database, DBTYPE type, u_int32_t flags, int mode);
+extern int db_set_flags(DB *db, u_int32_t flags);
+extern int db_close(DB *db, u_int32_t flags);
+extern int db_put(DB *db, DB_TXN *txnid, DBT *key, DBT *value, u_int32_t flags);
+extern int db_get(DB *db, DB_TXN *txnid, DBT *key, DBT *value, u_int32_t flags);
+extern int db_exists(DB *db, DB_TXN *txnid, DBT *key, u_int32_t flags);
+extern int db_get_pagesize(DB *db, u_int32_t *pagesizep);
+extern int txn_commit(DB_TXN *tid, u_int32_t flags);
+extern int txn_abort(DB_TXN *tid);
